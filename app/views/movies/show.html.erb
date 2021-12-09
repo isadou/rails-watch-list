@@ -1,0 +1,22 @@
+<p>
+  <strong>Title:</strong>
+  <%= @movie.title %>
+</p>
+
+<p>
+  <strong>Overview:</strong>
+  <%= @movie.overview %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @movie.rating %>
+</p>
+
+<ol>
+  <% @movie.bookmarks.each do |bookmark| %>
+    <li><%= bookmark.comment %></li>
+    <li><%= bookmark.list.name %></li>
+    <%= link_to "Bookmark delete", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure? "} %>
+  <% end %>
+</ol>
