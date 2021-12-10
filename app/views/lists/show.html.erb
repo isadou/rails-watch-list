@@ -1,0 +1,15 @@
+<p>
+  <strong>One Category Name:</strong>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @list.name %>
+</p>
+
+<ol>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+    <%= link_to "Review delete", review_path(review), method: :delete, data: { confirm: "Are you sure? "} %>
+  <% end %>
+</ol>

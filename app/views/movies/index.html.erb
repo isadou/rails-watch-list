@@ -1,30 +1,26 @@
-<h1> "Tous les films" <h1>
+  <div class="banner">
+    <h1><%= "Movies Catalogue" %> </h1>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Titre</th>
-      <th>overview</th>
-      <th>Rating</th>
-      <th>Action</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.overview %></td>
-        <td><%= movie.rating %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="container">
+  <% @movies.each do |movie| %>
+    <div class="card-movie d-flex ">
+    <% if movie.poster_url %>
+    <%= image_tag(movie.poster_url, alt: 'Description', style: 'display: block; padding: 10px, align: center, margin: auto; width: 20%;')%>
     <% end %>
-  </tbody>
-</table>
+      <div class="card-movie-infos ml-4">
+        <div id= "movie-info ">
+          <p><%= movie.title %> </p>
+          <p><%= movie.overview %> </p>
+          <p><%= movie.rating %> </p>
+        </div>
+        <div id= "button style: 'btn: btn-primary'  ">
+          <%= link_to 'Show', movie %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= link_to 'New Movie', new_movie_path %>
+</div>
 
 <br>
-
-<%= link_to 'New Movie', new_movie_path %>

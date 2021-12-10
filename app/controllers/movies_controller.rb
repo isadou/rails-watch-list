@@ -36,7 +36,7 @@ before_action :set_movie, only: %i[ show edit update destroy ]
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :overview, :rating, :movie_id)
+    params.require(:movie).permit(:title, :overview, :rating, :poster_url, :movie_id)
   end
 
 end
