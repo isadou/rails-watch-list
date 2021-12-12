@@ -1,22 +1,24 @@
-  <div class="banner">
-    <h1><%= "Movies Catalogue" %> </h1>
-  </div>
+<div class="banner">
+  <h1><%= "Movies Catalogue" %> </h1>
+</div>
+
 
 <div class="container">
   <% @movies.each do |movie| %>
-    <div class="card-movie d-flex ">
-    <% if movie.poster_url %>
-    <%= image_tag(movie.poster_url, alt: 'Description', style: 'display: block; padding: 10px, align: center, margin: auto; width: 20%;')%>
+    <div class="card-product">
+      <div id= "button d-flex">
+        <%= link_to 'Show', movie , class: "btn btn-primary"%>
+      </div>
+      <% if movie.poster_url %>
+      <%= image_tag(movie.poster_url, alt: 'Description', style: 'display: block; padding: 10px, align: center, margin: auto; width: 80px;')%>
     <% end %>
-      <div class="card-movie-infos ml-4">
+      <div class="card-product-infos d-flex">
         <div id= "movie-info ">
           <p><%= movie.title %> </p>
           <p><%= movie.overview %> </p>
           <p><%= movie.rating %> </p>
         </div>
-        <div id= "button style: 'btn: btn-primary'  ">
-          <%= link_to 'Show', movie %>
-        </div>
+
       </div>
     </div>
   <% end %>
